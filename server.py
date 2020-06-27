@@ -1,6 +1,9 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 import util
 app = Flask(__name__)
+@app.route('/')
+def home():
+    return render_template('index.html')
 @app.route('/classify_image', methods=['GET', 'POST'])
 def classify_image():
     image_data = request.form['image_data']
